@@ -1,0 +1,28 @@
+name: "网络辅助"
+version: "0.5.6"
+slug: "network_helper"
+description: "慧安智能 Home Assistant 网络辅助"
+image: "registry.cn-guangzhou.aliyuncs.com/huian-images/linux_arm64_network-helper"
+
+arch:
+  - aarch64
+
+startup: services
+boot: manual_only
+init: false
+
+host_network: true
+
+privileged:
+  - NET_ADMIN
+  - NET_RAW
+
+devices:
+  - /dev/net/tun
+
+apparmor: false
+
+hassio_api: true
+
+schema:
+  password: password?
